@@ -1,3 +1,5 @@
+/* @override */
+
 /* 
   style.css contains a reset, font normalization and some base styles.
   
@@ -73,7 +75,7 @@ There are three custom edits:
  * make the line-height relative and unit-less
  * remove the pre, code styles
 */
-body { font:13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }
+/*body { font:13px sans-serif; *font-size:small; *font:x-small; line-height:1.22; }*/
 
 table { font-size:inherit; font:100%; }
 
@@ -91,9 +93,6 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
  * minimal base styles 
  */
 
-
-/* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
-body, select, input, textarea { color:#444; }
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
    you'll want to define those yourself. */ 
@@ -146,8 +145,15 @@ label, input[type=button], input[type=submit], button { cursor: pointer; }
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
    Also: hot pink. */
-::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
+::-moz-selection{
+	color: #000000; 
+	text-shadow: none;
+	background: #fff15e;
+}
+::selection { 
+	background:#fff15e; 
+	color:#000000; 
+	text-shadow: none; } 
 
 /*  j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; } 
@@ -175,7 +181,10 @@ button {  width: auto; overflow: visible; }
 
 /* Hide for both screenreaders and browsers
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden { display:none; visibility:hidden; } 
+.hidden { display:none; 
+/*visibility:hidden; */
+/* conflict with jQuery */
+} 
 
 /* Hide only visually, but have it available for screenreaders 
    www.webaim.org/techniques/css/invisiblecontent/ 
@@ -194,64 +203,6 @@ button {  width: auto; overflow: visible; }
 .clearfix { display: block; }
 
 
-
-
-
- /* Primary Styles
-    Author: 
- */
-
-
-
-
-
-
-
-
-
-
-
-/* 
- * print styles
- * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
- */
-@media print {
-  * { background: transparent !important; color: #444 !important; text-shadow: none; }
-
-  a, a:visited { color: #444 !important; text-decoration: underline; }
-
-  a:after { content: " (" attr(href) ")"; } 
-
-  abbr:after { content: " (" attr(title) ")"; }
-  
-  .ir a:after { content: ""; }  /* Don't show links for images */
-  
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  
-  img { page-break-inside: avoid; }
-
-  @page { margin: 0.5cm; }
-
-  p, h2, h3 { orphans: 3; widows: 3; }
-
-  h2, h3{ page-break-after: avoid; }
-}
-
-
-
-/*
- * Media queries for responsive design
- */
-
-@media all and (orientation:portrait) { 
-  /* Style adjustments for portrait mode goes here */
-  
-}
-
-@media all and (orientation:landscape) { 
-  /* Style adjustments for landscape mode goes here */
-  
-}
 
 /* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
    Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */

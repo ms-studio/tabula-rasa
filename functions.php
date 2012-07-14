@@ -67,3 +67,38 @@ function versioned_resource($relative_url){
 
   return $relative_url.$file_version;
 }
+
+/* admin interface
+******************************/
+
+/**
+ * remove WordPress Howdy : http://www.redbridgenet.com/?p=653
+ */
+function goodbye_howdy ( $wp_admin_bar ) {
+    $avatar = get_avatar( get_current_user_id(), 16 );
+    if ( ! $wp_admin_bar->get_node( 'my-account' ) )
+        return;
+    $wp_admin_bar->add_node( array(
+        'id' => 'my-account',
+        'title' => sprintf( '%s', wp_get_current_user()->display_name ) . $avatar,
+    ) );
+}
+add_action( 'admin_bar_menu', 'goodbye_howdy' );
+
+/* some cleanup 
+******************************/
+
+remove_action('wp_head', 'shortlink_wp_head');
+
+remove_action( 'wp_head', 'feed_links' ); // not working...
+remove_action( 'wp_head', 'feed_links', 2 );
+remove_action('wp_head','feed_links_extra', 3);
+// in order to remove the comments feed. need to add manually the main RSS feed to the header.
+
+remove_action( 'wp_head', 'wp_generator');
+
+// Prevents WordPress from testing ssl capability on domain.com/xmlrpc.php?rsd
+remove_filter('atom_service_url','atom_service_url_filter');
+
+
+// end of functions.php

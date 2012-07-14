@@ -1,0 +1,301 @@
+
+
+/*******************************************
+*** Main CSS Site Layout ***
+*******************************************/
+
+/* @group Fonts */
+
+body { 
+	font:10px 'Open Sans', Arial, Helvetica, Sans-Serif; 
+	*font-size:small; 
+	*font:x-small; 
+	line-height:1.3;
+	
+/*	letter-spacing: 0.04em;*/
+/*	font-stretch: expanded; */
+	}
+
+
+b, 
+strong {
+		letter-spacing: 0.0em;
+	}
+
+body {
+/*	font-family: 'Open Sans', Arial, Helvetica, Sans-Serif;*/
+}
+
+.wf-loading .lib-serif {
+	font-family: serif;
+}
+
+.wf-inactive .lib-serif {
+	font-family: serif;
+}
+
+.margin-zero {
+	margin: 0;
+}
+
+.bold-title, .strong {
+	font-weight: bold;
+}
+
+.italic-title {
+	font-style: italic;
+}
+
+/* @end */
+
+
+
+
+/* @group Basics */
+	body {
+		background: #ddd;
+		height: 100%;
+		background-attachment: fixed;
+	}
+
+	
+	body, select, input, textarea,
+	a, a:active, a:visited,
+	a:hover
+	{ 
+		color:#222; 
+	}
+	
+
+	ul,
+	li,
+	.zero {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	
+	ul.clean {
+		list-style: none;
+	}
+	
+	.hidden {
+		display: none;
+	}
+	.jq-hidden {
+		display: none;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: normal;
+	}
+	
+	
+	h1.bold, h2.bold, h3.bold, h4.bold {
+		font-weight: bold;
+	}
+	
+	.h1 { font-size: 220%; }
+	.h2 { font-size: 170%; }
+	.h3 { font-size: 150%; }
+	.h4 { /*font-size: 120%;*/ }
+	.h5 {  }
+	
+	.font-small,
+	.small-font {
+
+	}
+	.font-norm,
+	.norm-font {
+
+	}
+	.font-medium,
+	.medium-font {
+
+	}
+	.large-font {
+		font-size: 140%;
+	}
+	.larger-font {
+		font-size: 145%;
+	}
+	
+	.indented {
+		text-indent: 2em;
+	}
+	
+	.indented p:first-child {
+		text-indent: 0;
+	}
+	
+	.ital {
+		font-style: italic;
+	}
+	
+	.trueblack {
+		color: #000;
+	}
+
+	.img {
+		display: block;
+	}
+	
+	.leftfloat {
+		float: left;
+	}
+	
+	.rightfloat {
+		float: right;
+	}
+	
+	.dblock {
+		display: block;
+	}
+	
+
+	/* @end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @group Media Queries */
+/* ------------------------------------------------------------------- */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+}
+/* Smartphones (landscape) ----------- 
+
+default styles
+*/
+@media only screen 
+and (min-width : 30px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 600px) {
+/* Styles */
+ 
+}
+
+
+/* Medium screens ----------- */
+@media only screen 
+and (min-width : 768px) {
+
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+/* @end */
+
+/* ==|== print styles ==================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+================== */
+ 
+@media print {
+
+#main article {
+/*	font-size: 140%;*/
+}
+
+#top-header {
+min-height: 1em;
+margin-bottom: 0;
+}
+
+#top-header h1,
+.main-menu,
+#search-nav,
+.vimeo-frame,
+.print-pdf,
+.close-button
+{
+	display: none;
+}
+
+#main article .small-font {
+	font-size: 11pt;
+}
+
+* { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+/*a, a:visited { text-decoration: underline; }*/
+
+abbr[title]:after { content: " (" attr(title) ")"; }
+
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+thead { display: table-header-group; } /* h5bp.com/t */
+tr, img { page-break-inside: avoid; }
+img { max-width: 100% !important; }
+@page { margin: 0.5cm; }
+p, h2, h3 { orphans: 3; widows: 3; }
+h2, h3 { page-break-after: avoid; }
+  
+}
+
+
+/*
+FONT SIZES
+(px) (%)
+10 	77
+11 	85
+12 	93
+13 	100
+14 	108
+15 	116
+16 	123.1
+17 	131
+18 	138.5
+19 	146.5
+20 	153.9
+21 	161.6
+22 	167
+23 	174
+24 	182
+25 	189
+26 	197 
+
+*/
+
+
+/* end of CSS Document */

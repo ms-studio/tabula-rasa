@@ -69,7 +69,8 @@
   <!-- end CSS-->
   
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/modernizr-1.5.min.js") ?>
+  
+  <script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/libs/modernizr.custom.14446.min.js" ></script> 
 
   <!-- Wordpress Head Items -->
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />

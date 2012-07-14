@@ -10,7 +10,7 @@ get_header(); ?>
 
   <?php if (have_posts()) : ?>
 
-    <h2>Search Results</h2>
+    <h2 class="h2">Search Results</h2>
 
     <nav>
       <div><?php next_posts_link('&laquo; Older Entries') ?></div>
@@ -40,7 +40,7 @@ get_header(); ?>
 
   <?php else : ?>
 
-    <h2>No posts found. Try a different search?</h2>
+    <h2 class="h2">No posts found. Try a different search?</h2>
     <?php get_search_form(); ?>
 
   <?php endif; ?>

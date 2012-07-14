@@ -7,7 +7,7 @@
 /* @group Fonts */
 
 body { 
-	font:10px 'Open Sans', Arial, Helvetica, Sans-Serif; 
+	font:16px Arial, Helvetica, Sans-Serif; 
 	*font-size:small; 
 	*font:x-small; 
 	line-height:1.3;
@@ -15,16 +15,23 @@ body {
 /*	letter-spacing: 0.04em;*/
 /*	font-stretch: expanded; */
 	}
+	
+@font-face {
+    font-family: 'ChunkFiveRegular';
+    src: url('../fonts/ChunkFive/Chunkfive-webfont.eot');
+    src: url('../fonts/ChunkFive/Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ChunkFive/Chunkfive-webfont.woff') format('woff'),
+         url('../fonts/ChunkFive/Chunkfive-webfont.ttf') format('truetype'),
+         url('../fonts/ChunkFive/Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}	
 
 
 b, 
 strong {
 		letter-spacing: 0.0em;
 	}
-
-body {
-/*	font-family: 'Open Sans', Arial, Helvetica, Sans-Serif;*/
-}
 
 .wf-loading .lib-serif {
 	font-family: serif;
@@ -49,11 +56,9 @@ body {
 /* @end */
 
 
-
-
 /* @group Basics */
 	body {
-		background: #ddd;
+		background: #eee;
 		height: 100%;
 		background-attachment: fixed;
 	}
@@ -87,6 +92,7 @@ body {
 	}
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: normal;
+		font-family: ChunkFiveRegular, serif;
 	}
 	
 	

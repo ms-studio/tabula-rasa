@@ -14,7 +14,7 @@
 
   <!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
   <section>
-    <h2>Author</h2>
+    <h2 class="h2">Author</h2>
     <p>A little something about you, the author. Nothing lengthy, just an overview.</p>
   </section>
   -->
@@ -51,14 +51,14 @@
   <?php }?>
   
   <nav role="navigation">
-    <?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
+    <?php wp_list_pages('title_li=<h2 class="h2">Pages</h2>' ); ?>
 
-    <h2>Archives</h2>
+    <h2 class="h2">Archives</h2>
     <ul>
       <?php wp_get_archives('type=monthly'); ?>
     </ul>
 
-    <?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
+    <?php wp_list_categories('show_count=1&title_li=<h2 class="h2">Categories</h2>'); ?>
   </nav>
 
   <nav>
@@ -66,7 +66,7 @@
       <?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
         <?php wp_list_bookmarks(); ?>
 
-        <li><h2>Meta</h2>
+        <li><h2 class="h2">Meta</h2>
         <ul>
           <?php wp_register(); ?>
           <li><?php wp_loginout(); ?></li>

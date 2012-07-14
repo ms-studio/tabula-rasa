@@ -5,44 +5,74 @@
  */
 ?>
 <!doctype html>
-<html lang="en" class="no-js">
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
-  <!-- www.phpied.com/conditional-comments-block-downloads/ -->
-  <!--[if IE]><![endif]-->
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <!-- Does not currently validate. Known issue with the Boilerplate. -->
-
-  <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-  <meta name="description" content="">
+ 
+  <title><?php if(is_front_page()){
+  	bloginfo('name');} 
+  	else {
+  	wp_title('&mdash;',true,'right'); 
+  	bloginfo('name');
+  	}	
+  	?> </title>
+  
+  <?php // ** DESCRIPTION v.0.1 **
+  if (is_single() || is_page() ) : if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+  ?><meta name="description" content="<?php  
+  // the_excerpt_rss(); is problematic : can contain "" characters that break the syntax. 
+  // better to use...
+  	$str = get_the_content();
+  	$str2 = strip_tags($str);
+  	$str3 = htmlentities($str2, ENT_COMPAT);
+  	//echo trim($str3); trims only beginning and end of string ...
+  	//echo php_strip_whitespace($str3); works only for PHP ...
+  	$text = preg_replace( '/\r\n/', ' ', trim($str3) ); 	
+  	// Change to the number of characters you want to display
+  	        $chars = 150;
+  	        $text = $text." ";
+  	        $text = substr($text,0,$chars);
+  	        $text = substr($text,0,strrpos($text,' '));
+  	        $text = $text."...";
+  	 echo $text;
+  ?>" />
+  <?php endwhile; endif; elseif(is_home()) : 
+  ?><meta name="description" content="Place your custom description for HOME here." />
+  <?php endif; ?>
+ 
   <meta name="author" content="">
-
-  <!--  Mobile Viewport Fix
-        j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
-  device-width : Occupy full width of the screen in its current orientation
-  initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
-  maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width
-  -->
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  
+  <?php // ** SEO OPTIMIZATION v.0.1 **
+  	if(is_single() || is_page() || is_home()) { 
+  	?><meta name="robots" content="all,index,follow" /><?php 
+  	} elseif (is_category() || is_archive()) { 
+  	?><meta name="robots" content="noindex,follow" /><?php } 
+  	?>
+  	  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <!-- CSS : implied media="all" -->
-  <?php versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/css/style.css") ?>
-
-  <!-- For the less-enabled mobile browsers like Opera Mini -->
-  <?php versioned_stylesheet($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/css/handheld.css", 'media="handheld"') ?>
-
+  
+  <style>.hidden {display: none;}</style>
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>css/main.css" media="all">
+  <!-- end CSS-->
+  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <?php versioned_javascript($GLOBALS["TEMPLATE_RELATIVE_URL"]."html5-boilerplate/js/modernizr-1.5.min.js") ?>
 
   <!-- Wordpress Head Items -->
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
   <?php wp_head(); ?>
@@ -59,7 +89,7 @@
 
   <div id="container">
     <header role="banner">
-      <h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+      <h1 class="h1"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
       <p class="description"><?php bloginfo('description'); ?></p>
     </header>
 

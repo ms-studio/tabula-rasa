@@ -12,7 +12,7 @@ get_header(); ?>
 
       <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
         <header>
-          <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+          <h2 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
           <time datetime="<?php the_time('Y-m-d')?>"><?php the_time('F jS, Y') ?></time>
           <span class="author">by <?php the_author() ?></span>
         </header>
@@ -34,7 +34,7 @@ get_header(); ?>
 
   <?php else : ?>
 
-    <h2>Not Found</h2>
+    <h2 class="h2">Not Found</h2>
     <p>Sorry, but you are looking for something that isn't here.</p>
     <?php get_search_form(); ?>
 

@@ -5,7 +5,7 @@
  */
 ?>
 
-  <footer>
+  <footer class="footer">
       <p>
         <?php bloginfo('name'); ?> is proudly powered by
         <a href="http://wordpress.org/">WordPress</a>, and built using the <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>.

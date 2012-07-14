@@ -52,132 +52,99 @@ strong {
 .italic-title {
 	font-style: italic;
 }
+/* @end */
+
+/* @group Basics */
+
+body {
+	background: #ccc;
+	height: 100%;
+	background-attachment: fixed;
+}
+
+body, select, input, textarea,
+a, a:active, a:visited,
+a:hover
+{ 
+	color:#222; 
+}
+
+ul,
+li,
+.zero {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+ul.clean {
+	list-style: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.jq-hidden {
+	display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "ChunkFiveRegular", serif;
+	font-weight: normal;
+}
+
+
+.h1 { font-size: 220%; }
+.h2 { font-size: 170%; }
+.h3 { font-size: 150%; }
+.h4 { font-size: 120%; }
+.h5 {  }
+
+.font-small,
+.small-font {
+
+}
+
+
+.large-font {
+	font-size: 140%;
+}
+.larger-font {
+	font-size: 145%;
+}
+
+.ital {
+	font-style: italic;
+}
+
+.trueblack {
+	color: #000;
+}
+
+.img {
+	display: block;
+}
+
+.leftfloat {
+	float: left;
+}
+
+.rightfloat {
+	float: right;
+}
+
+.dblock {
+	display: block;
+}
 
 /* @end */
 
-
-/* @group Basics */
-	body {
-		background: #eee;
-		height: 100%;
-		background-attachment: fixed;
-	}
-
-	
-	body, select, input, textarea,
-	a, a:active, a:visited,
-	a:hover
-	{ 
-		color:#222; 
-	}
-	
-
-	ul,
-	li,
-	.zero {
-		margin: 0;
-		padding: 0;
-		border: 0;
-	}
-	
-	ul.clean {
-		list-style: none;
-	}
-	
-	.hidden {
-		display: none;
-	}
-	.jq-hidden {
-		display: none;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		font-weight: normal;
-		font-family: ChunkFiveRegular, serif;
-	}
-	
-	
-	h1.bold, h2.bold, h3.bold, h4.bold {
-		font-weight: bold;
-	}
-	
-	.h1 { font-size: 220%; }
-	.h2 { font-size: 170%; }
-	.h3 { font-size: 150%; }
-	.h4 { /*font-size: 120%;*/ }
-	.h5 {  }
-	
-	.font-small,
-	.small-font {
-
-	}
-	.font-norm,
-	.norm-font {
-
-	}
-	.font-medium,
-	.medium-font {
-
-	}
-	.large-font {
-		font-size: 140%;
-	}
-	.larger-font {
-		font-size: 145%;
-	}
-	
-	.indented {
-		text-indent: 2em;
-	}
-	
-	.indented p:first-child {
-		text-indent: 0;
-	}
-	
-	.ital {
-		font-style: italic;
-	}
-	
-	.trueblack {
-		color: #000;
-	}
-
-	.img {
-		display: block;
-	}
-	
-	.leftfloat {
-		float: left;
-	}
-	
-	.rightfloat {
-		float: right;
-	}
-	
-	.dblock {
-		display: block;
-	}
-	
-
-	/* @end */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.container {
+	margin: 2em 4em;
+	padding: 0.3em 2em 1em 2em;
+	background: #eee;
+}
 
 /* @group Media Queries */
 /* ------------------------------------------------------------------- */

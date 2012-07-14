@@ -3,6 +3,42 @@
  * @package WordPress
  * @subpackage HTML5_Boilerplate
  */
+ 
+ 
+ // Post-Thumbnails Support
+ // ******************************
+ 
+ if ( function_exists( 'add_theme_support' ) ) {
+	// 	add_theme_support( 'post-thumbnails' );
+    // set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions  
+    // more info: http://codex.wordpress.org/Post_Thumbnails 
+ }
+
+
+// Custom image sizes
+// ****************************** 
+ 
+ if ( function_exists( 'add_image_size' ) ) { 
+ 	//add_image_size( 'category-thumb', 300, 9999 ); //300 pixels wide (and unlimited height)
+ 	//add_image_size( 'landscape', 304, 184, true ); // true = cropped
+ }
+ 
+ 
+ // Custom Menus
+ // ****************************** 
+
+ if ( function_exists( 'register_nav_menus' ) ) {
+ 	register_nav_menus(
+ 			array(
+ 				// 'main-menu' => __( 'This is the main menu' ),
+ 				// 'info-menu' => __( 'This is the info menu' ),
+ 				)
+ 			);
+ }
+ 
+
+// HTML5 Theme Functions
+// ******************************
 
 // Custom HTML5 Comment Markup
 function mytheme_comment($comment, $args, $depth) {
@@ -29,8 +65,6 @@ function mytheme_comment($comment, $args, $depth) {
     <!-- </li> is added by wordpress automatically -->
 <?php
 }
-
-automatic_feed_links();
 
 // Widgetized Sidebar HTML5 Markup
 if ( function_exists('register_sidebar') ) {
@@ -67,6 +101,8 @@ function versioned_resource($relative_url){
 
   return $relative_url.$file_version;
 }
+
+
 
 /* admin interface
 ******************************/

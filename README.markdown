@@ -1,7 +1,7 @@
-HTML5 Boilerplate for Wordpress
-===============================
+Tabula Rasa
+===========
 
-This theme is built on the [HTML5 Boilerplate](http://html5boilerplate.com/) by Paul Irish and Divya Manian. The sole purpose of this theme is to save developers the time it takes to apply the HTML5 Boilerplate to WordPress. The "HTML5 Boilerplate" name is used with permission from Paul Irish.
+Tabula Rasa is a modified version of the [HTML5 Boilerplate for Wordpress](https://github.com/zencoder/html5-boilerplate-for-wordpress) by Zencoder (). It is built on the [HTML5 Boilerplate](http://html5boilerplate.com/) by Paul Irish and Divya Manian. The sole purpose of this theme is to save developers the time it takes to apply the HTML5 Boilerplate to WordPress.
 
 The layout is based on Bruce Lawson's [Designing a Blog with HTML5](http://html5doctor.com/designing-a-blog-with-html5/)
 
@@ -15,7 +15,7 @@ It's a very bare layout, including only the base styles that come with the boile
 
 Getting Started
 ---------------
-1. Add the html5-boilerplate-for-wordpress folder to your wp-content/themes folder.
+1. Add the tabula-rasa folder to your wp-content/themes folder.
 2. Activate the theme. WP-Admin > Appearance > Themes
 3. Add some of the "Root Files" to the root directory of your website (explained below).
 4. Style away, knowing that you're building on a super solid base with HTML5 awesomeness.

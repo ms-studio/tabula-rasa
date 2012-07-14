@@ -5,17 +5,17 @@
  */
 ?>
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
 
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-       Remove this if you use the .htaccess -->
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+         More info: h5bp.com/i/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <!-- Does not currently validate. Known issue with the Boilerplate. -->
  
   <title><?php if(is_front_page()){
   	bloginfo('name');} 
@@ -57,13 +57,16 @@
   	?><meta name="robots" content="noindex,follow" /><?php } 
   	?>
   	  
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
+  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references : mathiasbynens.be/notes/touch-icons -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   <style>.hidden {display: none;}</style>
+  <!-- we want this to be hidden immediately before the rest of CSS loads -->
+  
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>css/main.css" media="all">
   <!-- end CSS-->
@@ -79,17 +82,10 @@
   <?php wp_head(); ?>
 
 </head>
+<body>
 
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-
-<!--[if lt IE 7 ]> <body <?php body_class('ie6'); ?>> <![endif]-->
-<!--[if IE 7 ]>    <body <?php body_class('ie7'); ?>> <![endif]-->
-<!--[if IE 8 ]>    <body <?php body_class('ie8'); ?>> <![endif]-->
-<!--[if IE 9 ]>    <body <?php body_class('ie9'); ?>> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <body <?php body_class('ie6'); ?>> <!--<![endif]-->
-
-  <div id="container">
-    <header role="banner">
+  <div id="container" class="container">
+    <header role="banner" class="header">
       <h1 class="h1"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
       <p class="description"><?php bloginfo('description'); ?></p>
     </header>

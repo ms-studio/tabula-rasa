@@ -8,6 +8,8 @@ Thumbs.db
 # Temporary files #
 ###################
 *.autosave
+*(Autosaved)*
 .sass-cache
+
 
 *.esproj

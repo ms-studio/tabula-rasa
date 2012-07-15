@@ -1,16 +1,51 @@
-# OS generated files #
+# Numerous always-ignore extensions
+######################
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.zip
+*.sass-cache
+
+# OS or Editor folders
 ######################
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
-*.zip
+*.esproj
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# Dreamweaver added files
+_notes
+dwsync.xml
+
+# Komodo
+*.komodoproject
+.komodotools
 
 # Temporary files #
 ###################
 *.autosave
 *(Autosaved)*
-.sass-cache
 
-
-*.esproj
+# Folders to ignore
+###################
+.hg
+.svn
+.CVS
+intermediate
+publish
+.idea

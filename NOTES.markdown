@@ -21,3 +21,12 @@ https://github.com/bytefair/eulerplate
 https://github.com/walker/html5-boilerplate-for-wordpress
 
 ***
+
+## Other WordPress starter kits: ##
+
+**markjaquith / WP stuff**
+https://github.com/markjaquith/WordPress-Skeleton
+
+https://github.com/markjaquith/WP-Stack
+
+***

@@ -37,7 +37,13 @@ time, mark, audio, video {
   font-size:100%;
   vertical-align:baseline;
   background:transparent;
-}                  
+}      
+
+/* but for some elements we want a margin */  
+
+p {
+	margin: 1em 0;
+}          
 
 /* ============================
    HTML5 display definitions

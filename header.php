@@ -81,7 +81,14 @@
   <?php wp_head(); ?>
 
 </head>
-<body>
+<body <?php 
+if ( in_category( 'whatever' ) && is_single() ) {
+	body_class('whatever no-js');
+} elseif ( in_category( 'whatnot' ) && is_single() ) {
+	body_class('whatnot no-js');
+} else {
+	body_class('no-js');
+	}  ?>>
 
   <div id="container" class="container">
     <header role="banner" class="header">

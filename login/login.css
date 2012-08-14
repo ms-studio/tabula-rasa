@@ -3,3 +3,35 @@
 custom styles for the login page
 
 */
+
+html,
+body,
+body.login {
+/*	background-color: #888;*/
+	}
+
+
+body.login h1 a {
+/*	background-image: url('../img/login-header.png');*/
+}
+
+.login #nav a {
+/*    color: #eee !important;*/
+}
+
+.login #nav a:hover {
+/*    color: #ffdd03 !important;*/
+}
+
+#nav {
+/*    text-shadow: 0 1px 0 #333;*/
+}
+
+
+.login #nav, .login #backtoblog {
+/*    text-shadow: 0 1px 0 #000000;*/
+}
+
+.login #nav a, .login #backtoblog a {
+/*    color: #fff !important;*/
+}

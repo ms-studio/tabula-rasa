@@ -103,6 +103,15 @@ function versioned_resource($relative_url){
 }
 
 
+/* login interface
+******************************/
+
+//custom Login
+function custom_login() { 
+echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('template_directory').'/login/login.css" />'; 
+}
+add_action('login_head', 'custom_login');
+
 
 /* admin interface
 ******************************/

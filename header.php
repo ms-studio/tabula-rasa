@@ -22,29 +22,17 @@
   	wp_title('&mdash;',true,'right'); 
   	bloginfo('name');
   	}	
-  	?> </title>
+  	?></title>
   
-  <?php // ** DESCRIPTION v.0.1 **
+  <?php // ** DESCRIPTION v.0.2 **
   if (is_single() || is_page() ) : if ( have_posts() ) : while ( have_posts() ) : the_post(); 
   ?><meta name="description" content="<?php  
-  // the_excerpt_rss(); is problematic : can contain "" characters that break the syntax. 
-  // better to use...
-  	$str = get_the_content();
-  	$str2 = strip_tags($str);
-  	$str3 = htmlentities($str2, ENT_COMPAT);
-  	//echo trim($str3); trims only beginning and end of string ...
-  	//echo php_strip_whitespace($str3); works only for PHP ...
-  	$text = preg_replace( '/\r\n/', ' ', trim($str3) ); 	
-  	// Change to the number of characters you want to display
-  	        $chars = 150;
-  	        $text = $text." ";
-  	        $text = substr($text,0,$chars);
-  	        $text = substr($text,0,strrpos($text,' '));
-  	        $text = $text."...";
+  	$descr = get_the_excerpt();
+  	$text = preg_replace( '/\r\n/', ', ', trim($descr) ); 
   	 echo $text;
   ?>" />
   <?php endwhile; endif; elseif(is_home()) : 
-  ?><meta name="description" content="Place your custom description for HOME here." />
+  ?><meta name="description" content="<?php bloginfo('description'); ?>" />
   <?php endif; ?>
  
   <meta name="author" content="">

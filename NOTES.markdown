@@ -29,4 +29,8 @@ https://github.com/markjaquith/WordPress-Skeleton
 
 https://github.com/markjaquith/WP-Stack
 
+**automattic / WP stuff**
+https://github.com/Automattic/_s
+http://underscores.me/
+
 ***

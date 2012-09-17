@@ -48,8 +48,16 @@
   <meta name="viewport" content="width=device-width">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references : mathiasbynens.be/notes/touch-icons -->
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/favicon.ico">
+  
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/apple-touch-icon-144x144.png">
+  <!-- For iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/apple-touch-icon-114x114.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/apple-touch-icon-72x72.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/apple-touch-icon.png">
   
   <style>.hidden {display: none;}</style>
   <!-- we want this to be hidden immediately before the rest of CSS loads -->

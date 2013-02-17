@@ -5,6 +5,22 @@
  */
  
  
+ 
+  // Unregister jQuery 
+  // (we call it in the footer)
+  // ****************************
+  
+ function unload_jquery() {
+      // only use this method is we're not in wp-admin
+      if (!is_admin()) {
+          // deregister the WP version of jQuery
+          wp_deregister_script('jquery');
+      }
+  }
+  add_action('template_redirect', 'unload_jquery');
+  
+  
+ 
  // Post-Thumbnails Support
  // ******************************
  

@@ -1,14 +1,11 @@
 <?php
 /**
  * @package WordPress
- * @subpackage HTML5_Boilerplate
+ * @subpackage Tabula_Rasa
  */
 ?>
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 <head>
   <meta charset="utf-8">
 
@@ -24,12 +21,12 @@
   	}	
   	?></title>
   
-  <?php // ** DESCRIPTION v.0.2 **
+  <?php // ** DESCRIPTION v.0.3 **
   if (is_single() || is_page() ) : if ( have_posts() ) : while ( have_posts() ) : the_post(); 
   ?><meta name="description" content="<?php  
   	$descr = get_the_excerpt();
-  	$text = preg_replace( '/\r\n/', ', ', trim($descr) ); 
-  	 echo $text;
+  	$text = str_replace( '/\r\n/', ', ', trim($descr) ); 
+  	echo esc_attr($text);
   ?>" />
   <?php endwhile; endif; elseif(is_home()) : 
   ?><meta name="description" content="<?php bloginfo('description'); ?>" />
@@ -37,12 +34,14 @@
  
   <meta name="author" content="">
   
-  <?php // ** SEO OPTIMIZATION v.0.1 **
-  	if(is_single() || is_page() || is_home()) { 
-  	?><meta name="robots" content="all,index,follow" /><?php 
-  	} elseif (is_category() || is_archive()) { 
-  	?><meta name="robots" content="noindex,follow" /><?php } 
-  	?>
+  <?php // ** SEO OPTIMIZATION v.0.2 **
+  if ( is_attachment() ) {
+  ?><meta name="robots" content="noindex,follow" /><?php
+  } else if( is_single() || is_page() || is_home() ) { 
+  ?><meta name="robots" content="all,index,follow" /><?php 
+  } else if ( is_category() || is_archive() ) { 
+  ?><meta name="robots" content="noindex,follow" /><?php } 
+  ?>
   	  
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
@@ -73,6 +72,9 @@
   <!-- Wordpress Head Items -->
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+  <!--[if lt IE 9]>
+  <script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>js/html5.js" type="text/javascript"></script>
+  <![endif]-->
 
   <?php wp_head(); ?>
 
@@ -92,3 +94,10 @@ if ( in_category( 'whatever' ) && is_single() ) {
       <p class="description"><?php bloginfo('description'); ?></p>
     </header>
 
+	<?php wp_nav_menu( array(
+		 'theme_location' => 'main-menu',
+		 'container'       => 'nav',
+		 'container_class'       => 'clearfix main-menu default-menu horiz-list small-font',
+		 'depth'           => 0,
+		 //'link_after'       => '&nbsp;',
+		 ) ); ?>

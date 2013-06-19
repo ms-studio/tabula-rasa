@@ -159,6 +159,23 @@ function goodbye_howdy ( $wp_admin_bar ) {
 }
 add_action( 'admin_bar_menu', 'goodbye_howdy' );
 
+/**
+ * De-clutter the dashboard : http://wp.tutsplus.com/?p=21622
+ */
+function tabula_remove_dashboard_widgets()
+{
+	// Globalize the metaboxes array, this holds all the widgets for wp-admin
+	global $wp_meta_boxes;
+	
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+	
+}
+add_action('wp_dashboard_setup', 'tabula_remove_dashboard_widgets' );
+
+
 /* some cleanup 
 ******************************/
 

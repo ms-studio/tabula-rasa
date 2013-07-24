@@ -25,7 +25,7 @@
  // ******************************
  
  if ( function_exists( 'add_theme_support' ) ) {
-	// 	add_theme_support( 'post-thumbnails' );
+	 	add_theme_support( 'post-thumbnails' );
     // set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions  
     // more info: http://codex.wordpress.org/Post_Thumbnails 
  }
@@ -145,35 +145,7 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 /* admin interface
 ******************************/
 
-/**
- * remove WordPress Howdy : http://www.redbridgenet.com/?p=653
- */
-function goodbye_howdy ( $wp_admin_bar ) {
-    $avatar = get_avatar( get_current_user_id(), 16 );
-    if ( ! $wp_admin_bar->get_node( 'my-account' ) )
-        return;
-    $wp_admin_bar->add_node( array(
-        'id' => 'my-account',
-        'title' => sprintf( '%s', wp_get_current_user()->display_name ) . $avatar,
-    ) );
-}
-add_action( 'admin_bar_menu', 'goodbye_howdy' );
-
-/**
- * De-clutter the dashboard : http://wp.tutsplus.com/?p=21622
- */
-function tabula_remove_dashboard_widgets()
-{
-	// Globalize the metaboxes array, this holds all the widgets for wp-admin
-	global $wp_meta_boxes;
-	
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
-	
-}
-add_action('wp_dashboard_setup', 'tabula_remove_dashboard_widgets' );
+require_once('admin/functions-admin.php');
 
 
 /* some cleanup 

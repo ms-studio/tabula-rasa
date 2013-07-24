@@ -1,0 +1,34 @@
+/* hide some stuff */
+
+#wp-admin-bar-comments,
+#wp-admin-bar-new-media,
+#wp-admin-bar-new-page,
+#wp-admin-bar-new-user,
+#menu-comments {
+/* 	display:none;*/
+/* NOTE: 
+	must be repeated in the main CSS
+	since the admin bar is also on the frontend
+	 */
+}
+
+
+/* ********
+* Hide some File Gallery Settings 
+*********** */
+
+.media-sidebar label[data-setting="title"] {
+    /*display:none;*/
+}
+.media-sidebar label[data-setting="description"] {
+    /*display:none;*/
+}
+.media-sidebar .attachment-display-settings {
+    /*display:none;*/
+}
+
+#media-single-form tr.post_content,
+#media-single-form tr.post_title {
+	/*display: none;*/
+}
+

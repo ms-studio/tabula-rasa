@@ -5,92 +5,11 @@
  */
  
  
- 
-  // Unregister jQuery 
-  // (we call it in the footer)
-  // ****************************
-  
- function unload_jquery() {
-      // only use this method is we're not in wp-admin
-      if (!is_admin()) {
-          // deregister the WP version of jQuery
-          wp_deregister_script('jquery');
-      }
-  }
-  add_action('template_redirect', 'unload_jquery');
-  
-  
- 
- // Post-Thumbnails Support
- // ******************************
- 
- if ( function_exists( 'add_theme_support' ) ) {
-	 	add_theme_support( 'post-thumbnails' );
-    // set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions  
-    // more info: http://codex.wordpress.org/Post_Thumbnails 
- }
+require_once('functions-init.php');
 
 
-// Custom image sizes
-// ****************************** 
- 
- if ( function_exists( 'add_image_size' ) ) { 
- 	//add_image_size( 'category-thumb', 300, 9999 ); //300 pixels wide (and unlimited height)
- 	//add_image_size( 'landscape', 304, 184, true ); // true = cropped
- }
- 
- 
- // Custom Menus
- // ****************************** 
-
- if ( function_exists( 'register_nav_menus' ) ) {
- 	register_nav_menus(
- 			array(
- 				// 'main-menu' => __( 'This is the main menu' ),
- 				// 'info-menu' => __( 'This is the info menu' ),
- 				)
- 			);
- }
- 
-
-// HTML5 Theme Functions
-// ******************************
-
-// Custom HTML5 Comment Markup
-function mytheme_comment($comment, $args, $depth) {
-   $GLOBALS['comment'] = $comment; ?>
-   <li>
-     <article <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-       <header class="comment-author vcard">
-          <?php echo get_avatar($comment,$size='48',$default='<path_to_url>' ); ?>
-          <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-          <time><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php printf(__('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a></time>
-          <?php edit_comment_link(__('(Edit)'),'  ','') ?>
-       </header>
-       <?php if ($comment->comment_approved == '0') : ?>
-          <em><?php _e('Your comment is awaiting moderation.') ?></em>
-          <br />
-       <?php endif; ?>
-
-       <?php comment_text() ?>
-
-       <nav>
-         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-       </nav>
-     </article>
-    <!-- </li> is added by wordpress automatically -->
-<?php
-}
-
-// Widgetized Sidebar HTML5 Markup
-if ( function_exists('register_sidebar') ) {
-	register_sidebar(array(
-		'before_widget' => '<section>',
-		'after_widget' => '</section>',
-		'before_title' => '<h2 class="widgettitle">',
-		'after_title' => '</h2>',
-	));
-}
+/* CSS/JS Versioning
+*********************/ 
 
 // Custom Functions for CSS/Javascript Versioning
 $GLOBALS["TEMPLATE_URL"] = get_bloginfo('template_url')."/";
@@ -145,23 +64,8 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 /* admin interface
 ******************************/
 
-require_once('admin/functions-admin.php');
+require_once('functions-admin.php');
 
-
-/* some cleanup 
-******************************/
-
-remove_action('wp_head', 'shortlink_wp_head');
-
-remove_action( 'wp_head', 'feed_links' ); // not working...
-remove_action( 'wp_head', 'feed_links', 2 );
-remove_action('wp_head','feed_links_extra', 3);
-// in order to remove the comments feed. need to add manually the main RSS feed to the header.
-
-remove_action( 'wp_head', 'wp_generator');
-
-// Prevents WordPress from testing ssl capability on domain.com/xmlrpc.php?rsd
-remove_filter('atom_service_url','atom_service_url_filter');
 
 
 // end of functions.php

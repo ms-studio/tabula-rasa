@@ -61,20 +61,10 @@
   <style>.hidden {display: none;}</style>
   <!-- we want this to be hidden immediately before the rest of CSS loads -->
   
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>css/main.css" media="all">
-  <!-- end CSS-->
-  
-  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  
-  <script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/libs/modernizr.custom.14446.min.js" ></script> 
 
   <!-- Wordpress Head Items -->
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-  <!--[if lt IE 9]>
-  <script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"]; ?>js/html5.js" type="text/javascript"></script>
-  <![endif]-->
 
   <?php wp_head(); ?>
 

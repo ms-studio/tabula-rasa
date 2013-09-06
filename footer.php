@@ -16,21 +16,6 @@
   </footer>
 </div> <!--! end of #container -->
 
-  <!-- Javascript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery. fall back to local if necessary 
-  check for the latest version here: https://developers.google.com/speed/libraries/devguide
-  -->    
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/libs/jquery-1.8.2.min.js"><\/script>')</script>
-
-  <!-- scripts concatenated and minified via ant build script-->
-  <script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/plugins.js"></script>
-  <script src="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>js/script.js"></script>
-  <!-- end scripts-->
-  
-  <!-- Some code for website analytics may be placed here -->
-
   <?php wp_footer(); ?>
 
 </body>

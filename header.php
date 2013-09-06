@@ -70,14 +70,22 @@
 
 </head>
 <body <?php 
-if ( in_category( 'whatever' ) && is_single() ) {
-	body_class('whatever no-js');
-} elseif ( in_category( 'whatnot' ) && is_single() ) {
-	body_class('whatnot no-js');
-} else {
-	body_class('no-js');
-	}  ?>>
 
+		// init variable
+		$nfo_body_var = '';
+		
+		if (is_single()) {
+							
+			// test categories
+			include( TEMPLATEPATH . '/inc/categories-list.php' );
+					
+		}
+
+		$nfo_body_var.= 'no-js';
+		
+		body_class($nfo_body_var);
+	
+	?>>
   <div id="container" class="container">
     <header role="banner" class="header">
       <h1 class="h1"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>

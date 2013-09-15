@@ -32,3 +32,34 @@
 	/*display: none;*/
 }
 
+
+/* ********
+* Jetpack Improvement 
+*********** */
+
+.toplevel_page_jetpack .update-plugins {
+	display: none;
+}
+
+
+
+/* ***********
+* Advanced Custom Fields
+************ */
+
+table.acf_input tbody tr td.label {
+	width: 14%;
+}
+
+.acf-gallery .thumbnails  {
+	min-height: 150px;
+}
+
+#acf-acf-bilder-galerie p.label {
+	display: none;
+}
+
+/***/
+
+
+

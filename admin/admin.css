@@ -13,6 +13,17 @@
 }
 
 
+
+/* *************************
+* Hide excerpt explanations 
+*********** */
+
+#postexcerpt .inside > p {
+	display: none;
+}
+
+
+
 /* ********
 * Hide some File Gallery Settings 
 *********** */

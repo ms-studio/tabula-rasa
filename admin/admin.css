@@ -13,7 +13,6 @@
 }
 
 
-
 /* *************************
 * Hide excerpt explanations 
 *********** */
@@ -21,8 +20,6 @@
 #postexcerpt .inside > p {
 	display: none;
 }
-
-
 
 /* ********
 * Hide some File Gallery Settings 
@@ -45,7 +42,8 @@
 
 
 /* ********
-* Jetpack Improvement 
+* Jetpack Improvement  
+* Hide update notifications
 *********** */
 
 .toplevel_page_jetpack .update-plugins {

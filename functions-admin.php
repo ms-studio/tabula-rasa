@@ -12,8 +12,9 @@ add_action('admin_head', 'custom_admin_head');
 
 
 /**
- * remove WordPress Howdy : http://www.redbridgenet.com/?p=653
- */
+ * remove WordPress Howdy
+ * http://www.redbridgenet.com/?p=653
+******************************/
 function goodbye_howdy ( $wp_admin_bar ) {
     $avatar = get_avatar( get_current_user_id(), 16 );
     if ( ! $wp_admin_bar->get_node( 'my-account' ) )
@@ -24,6 +25,17 @@ function goodbye_howdy ( $wp_admin_bar ) {
     ) );
 }
 add_action( 'admin_bar_menu', 'goodbye_howdy' );
+
+/**
+ * Modify the admin footer text
+ * http://www.rvamedia.com/wordpress/how-to-white-label-wordpress
+******************************/
+
+function modify_footer_admin ()
+{
+    echo '<span id="footer-thankyou">&nbsp;</span>';
+}
+add_filter('admin_footer_text', 'modify_footer_admin');
 
 
 /* Edit screen improvements

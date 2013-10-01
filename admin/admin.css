@@ -68,6 +68,15 @@ table.acf_input tbody tr td.label {
 	display: none;
 }
 
+
+/**
+ * MEM Plugin
+ */
+
+.mem-repeat-timestamp {
+	display: none !important;
+}
+
 /***/
 
 

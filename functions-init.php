@@ -93,15 +93,18 @@ add_action( 'wp_print_scripts', 'custom_register_javascript', 100 );
 
 remove_action('wp_head', 'shortlink_wp_head');
 
-remove_action( 'wp_head', 'feed_links' ); // not working...
-remove_action( 'wp_head', 'feed_links', 2 );
-remove_action('wp_head','feed_links_extra', 3);
+remove_action('wp_head', 'feed_links' ); // not working...
+remove_action('wp_head', 'feed_links', 2 );
+remove_action('wp_head', 'feed_links_extra', 3);
 // in order to remove the comments feed. need to add manually the main RSS feed to the header.
 
-remove_action( 'wp_head', 'wp_generator');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_generator');
 
 // Prevents WordPress from testing ssl capability on domain.com/xmlrpc.php?rsd
 remove_filter('atom_service_url','atom_service_url_filter'); 
+
  
 /* Post-Thumbnails Support
 ******************************/

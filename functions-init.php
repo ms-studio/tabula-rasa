@@ -41,8 +41,20 @@ function custom_register_styles() {
 add_action( 'wp_print_styles', 'custom_register_styles', 100 );
 
 
+/**
+ * Check to see if the current page is the login/register page
+ * Use this in conjunction with is_admin() to separate the front-end from the back-end of your theme
+ * @return bool
+ * Src: http://stackoverflow.com/questions/5266945/
+ */
+if ( ! function_exists( 'is_login_page' ) ) {
+  function is_login_page() {
+    return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
+  }
+}
+
 function custom_register_javascript() {
-	if ( !is_admin() ) {
+	if ( !is_admin() && !is_login_page() ) {
 
 				wp_dequeue_script('devicepx'); // some Jetpack stuff...
 	      

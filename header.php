@@ -46,8 +46,9 @@
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references : mathiasbynens.be/notes/touch-icons -->
-  <link rel="shortcut icon" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/favicon.ico">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references : mathiasbynens.be/notes/touch-icons -->  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
   
   <!-- For third-generation iPad with high-resolution Retina display: -->
   <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $GLOBALS["TEMPLATE_RELATIVE_URL"] ?>img/icons/apple-touch-icon-144x144.png">

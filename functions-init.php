@@ -14,9 +14,11 @@
   // ****************************
    
 function custom_register_styles() {
-	if ( !is_admin() ) {
-	
-//				wp_dequeue_style( 'thematic_style' );
+				
+				/**
+				 * Custom CSS
+				 */
+				
 				// the MAIN stylesheet
 				wp_enqueue_style( 
 						'main_css_style', 
@@ -24,39 +26,16 @@ function custom_register_styles() {
 						false, // dependencies
 						null // version
 				); 
-				
-//				wp_enqueue_style( 
-//						'webink_css', 
-//						'Custom Google Fonts or WebInk CSS url',
-//						false,
-//						null
-//				); 
-				
-				
-				// remove some plugin CSS
-//	      wp_dequeue_style( 'mailchimpSF_main_css' );
-	      // src: http://c-sideprod.ch/?mcsf_action=main_css&#038;ver=3.6
-	   }
-}
-add_action( 'wp_print_styles', 'custom_register_styles', 100 );
+
+				// remove some plugin CSS:
+				// wp_dequeue_style( 'mailchimpSF_main_css' );
 
 
-/**
- * Check to see if the current page is the login/register page
- * Use this in conjunction with is_admin() to separate the front-end from the back-end of your theme
- * @return bool
- * Src: http://stackoverflow.com/questions/5266945/
- */
-if ( ! function_exists( 'is_login_page' ) ) {
-  function is_login_page() {
-    return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
-  }
-}
-
-function custom_register_javascript() {
-	if ( !is_admin() && !is_login_page() ) {
-
-				wp_dequeue_script('devicepx'); // some Jetpack stuff...
+				/**
+				 * Custom JavaScript
+				 */
+	      	      
+	      wp_dequeue_script('devicepx'); // some Jetpack stuff...
 	      
 	      wp_enqueue_script( 
 	      		'modernizer_js', // handle
@@ -67,14 +46,14 @@ function custom_register_javascript() {
 	      );
 	      
 	      wp_deregister_script('jquery');
-	     	wp_register_script(
-	     		'jquery', 
-	     		get_site_url() . '/wp-includes/js/jquery/jquery.js', 
-	     		false, // dep
-	     		'1.10.2', // jquery version
-	     		true // load in footer !!!
-	     	);
-	     	wp_enqueue_script('jquery');
+	      	wp_register_script(
+	      		'jquery', 
+	      		get_site_url() . '/wp-includes/js/jquery/jquery.js', 
+	      		false, // dep
+	      		'1.10.2', // jquery version
+	      		true // load in footer !!!
+	      	);
+	      	wp_enqueue_script('jquery');
 	      
 	      wp_enqueue_script( 
 	      // the MAIN JavaScript file 
@@ -84,9 +63,11 @@ function custom_register_javascript() {
 	      		null, // version
 	      		true // in_footer
 	      );
-	   }
+	      
 }
-add_action( 'wp_print_scripts', 'custom_register_javascript', 100 ); 
+add_action( 'wp_enqueue_scripts', 'custom_register_styles', 10);
+
+
 
 /* Some header cleanup 
 ******************************/

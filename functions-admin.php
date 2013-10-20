@@ -95,7 +95,7 @@ add_action('wp_dashboard_setup', 'tabula_remove_dashboard_widgets' );
 
 function wps_recent_posts_dw() {
 ?>
-   <ol>
+   <ul style="list-style-type: disc;padding-left: 1.5em;">
      <?php
           global $post;
           $args = array( 'numberposts' => 5 );
@@ -103,7 +103,7 @@ function wps_recent_posts_dw() {
                 foreach( $myposts as $post ) :  setup_postdata($post); ?>
                     <li> <? the_time('j F Y'); ?> – <a href="<?php echo admin_url(); ?>post.php?post=<?php the_ID(); ?>&action=edit"><?php the_title(); ?></a> (<a href="<?php the_permalink(); ?>">visiter</a>)</li>
           <?php endforeach; ?>
-   </ol>
+   </ul>
 <?php
 }
 function add_wps_recent_posts_dw() {

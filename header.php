@@ -96,7 +96,7 @@
 	<?php wp_nav_menu( array(
 		 'theme_location' => 'main-menu',
 		 'container'       => 'nav',
-		 'container_class'       => 'clearfix main-menu default-menu horiz-list small-font',
+		 'container_class'       => 'clear main-menu default-menu horiz-list small-font',
 		 'depth'           => 0,
 		 //'link_after'       => '&nbsp;',
 		 ) ); ?>

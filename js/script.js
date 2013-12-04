@@ -1,4 +1,4 @@
-$(document).ready(function() {	
+jQuery( document ).ready( function( $ ) {	
 
 /*
  * CONTENTS
@@ -13,6 +13,21 @@ $(document).ready(function() {
  ****************************************************
  */ 
  $(".js-hidden").hide();
+
+
+/* 
+ * Outgoing Links = new window
+ ****************************************************
+ */ 
+
+$("a[href^=http]").each(
+   function(){ 
+      if(this.href.indexOf(location.hostname) == -1) {
+  			$(this).attr('target', '_blank');
+			}
+  	}
+ )
+
 
 /* 
  * 1.

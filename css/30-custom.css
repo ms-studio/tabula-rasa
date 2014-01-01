@@ -93,7 +93,6 @@ ul.clean {
 }
 
 .jq-hidden {
-	display: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -237,45 +236,34 @@ margin-bottom: 0;
 	font-size: 11pt;
 }
 
-* { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
-/*a, a:visited { text-decoration: underline; }*/
+* {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/*
+a, a:visited { 
+	text-decoration: underline; 
+}
+*/
 
 abbr[title]:after { content: " (" attr(title) ")"; }
 
-.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  
+/* Don't show links for images, or javascript/internal links */
+
 pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
 thead { display: table-header-group; } /* h5bp.com/t */
 tr, img { page-break-inside: avoid; }
 img { max-width: 100% !important; }
-@page { margin: 0.5cm; }
+
+/*@page { margin: 0.5cm; }*/
+
 p, h2, h3 { orphans: 3; widows: 3; }
 h2, h3 { page-break-after: avoid; }
   
 }
-
-
-/*
-FONT SIZES
-(px) (%)
-10 	77
-11 	85
-12 	93
-13 	100
-14 	108
-15 	116
-16 	123.1
-17 	131
-18 	138.5
-19 	146.5
-20 	153.9
-21 	161.6
-22 	167
-23 	174
-24 	182
-25 	189
-26 	197 
-
-*/
-
 
 /* end of CSS Document */

@@ -11,12 +11,32 @@ get_header(); ?>
   <?php if (have_posts()) : ?>
 
   <section>
-    <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-    <?php /* If this is a category archive */ if (is_category()) { ?>
-    <h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
-    <?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-    <h2 class="pagetitle">Posts Tagged &#8216;<?php single_tag_title(); ?>&#8217;</h2>
-    <?php /* If this is a daily archive */ } elseif (is_day()) { ?>
+
+    <?php
+    
+    $headr_open = '<h1 class="h1 article-title"><span class="title-style">';
+    $headr_close = '</span></h1>';
+    $current_term = single_term_title("", false);
+    
+     /* If this is a category archive */ if (is_category()) { 
+     
+     echo $headr_open.'Category: ';
+     echo $current_term;
+     echo $headr_close; 
+     
+      /* If this is a tag archive */ } elseif( is_tag() ) { 
+      
+    echo $headr_open.'';
+    echo $current_term;
+    echo $headr_close; 
+      
+      /* If this is a Taxonomy */ } elseif (is_tax()) { 
+          
+		echo $headr_open. 'Archives: ';
+		echo $current_term;
+		echo $headr_close; 
+          		
+       /* If this is a daily archive */ } elseif (is_day()) { ?>
     <h2 class="pagetitle">Archive for <?php the_time('F jS, Y'); ?></h2>
     <?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
     <h2 class="pagetitle">Archive for <?php the_time('F, Y'); ?></h2>

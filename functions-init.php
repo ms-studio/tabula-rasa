@@ -176,12 +176,9 @@ function mem_date_of_today() {
    
 }
 
-
-
-
-
-
-
-
+function my_mem_settings() {
+	mem_plugin_settings( array( 'post', 'publications' ), 'full' );
+}
+add_action( 'mem_init', 'my_mem_settings' );
 
 

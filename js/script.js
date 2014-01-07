@@ -1,4 +1,4 @@
-jQuery( document ).ready( function( $ ) {	
+jQuery(document).ready(function($){
 
 /*
  * CONTENTS
@@ -11,22 +11,22 @@ jQuery( document ).ready( function( $ ) {
 /* 
  * 0: js-hidden must be hidden
  ****************************************************
- */ 
+ */
  $(".js-hidden").hide();
 
 
 /* 
  * Outgoing Links = new window
  ****************************************************
- */ 
+ */
 
 $("a[href^=http]").each(
-   function(){ 
-      if(this.href.indexOf(location.hostname) == -1) {
-  			$(this).attr('target', '_blank');
-			}
-  	}
- )
+	function(){
+		if(this.href.indexOf(location.hostname) === -1) {
+			$(this).attr('target', '_blank');
+		}
+	}
+ );
 
 
 /* 
@@ -50,8 +50,5 @@ $("body").emailSpamProtection("email");
  * that's it !
  ****************************************************
  */
- 				
+
 }); // end document ready
-		
-		
-		

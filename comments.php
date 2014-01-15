@@ -20,19 +20,34 @@
 <?php if ( have_comments() ) : ?>
   <h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
-  <nav>
-    <div><?php previous_comments_link() ?></div>
-    <div><?php next_comments_link() ?></div>
-  </nav>
+  <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+  <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+  	<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'tabularasa' ); ?></h1>
+  	<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'tabularasa' ) ); ?></div>
+  	<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'tabularasa' ) ); ?></div>
+  </nav><!-- #comment-nav-above -->
+  <?php endif; // Check for comment navigation. ?>
 
   <ol class="commentlist">
-  <?php wp_list_comments('type=comment&callback=mytheme_comment'); ?>
+  <?php 
+  
+  	wp_list_comments( array(
+  		'style'      => 'ol',
+  		'short_ping' => true,
+  		'avatar_size'=> 96,
+  	) ); 
+  	
+  	?>
   </ol>
 
-  <nav>
-    <div><?php previous_comments_link() ?></div>
-    <div><?php next_comments_link() ?></div>
-  </nav>
+  <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+  <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+  	<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'tabularasa' ); ?></h1>
+  	<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'tabularasa' ) ); ?></div>
+  	<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'tabularasa' ) ); ?></div>
+  </nav><!-- #comment-nav-below -->
+  <?php endif; // Check for comment navigation. ?>
+  
  <?php else : // this is displayed if there are no comments so far ?>
 
   <?php if ( comments_open() ) : ?>

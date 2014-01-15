@@ -6,8 +6,8 @@ jQuery(document).ready(function($){
  *   1: Email Spam Protection 
  *
  */
- 
- 
+
+
 /* 
  * 0: js-hidden must be hidden
  ****************************************************

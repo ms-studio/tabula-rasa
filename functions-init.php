@@ -142,9 +142,9 @@ if ( function_exists( 'add_image_size' ) ) {
 if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
 			array(
-					'main-menu'   => __( 'Menu N°1' ),
-					'second-menu' => __( 'Menu N°2' ),
-					'third-menu'  => __( 'Menu N°3' ),
+					'primary'   => __( 'Menu N°1' ),
+//					'secondary' => __( 'Menu N°2' ),
+//					'third'  => __( 'Menu N°3' ),
 			)
 	);
 }

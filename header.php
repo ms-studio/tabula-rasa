@@ -91,7 +91,7 @@ $nfo_body_var = '';
 if ( is_single() ) {
 
 	// test categories
-	include( TEMPLATEPATH . '/inc/categories-list.php' );
+	include( get_template_directory() . '/inc/categories-list.php' );
 
 }
 

@@ -8,15 +8,6 @@
 require_once( 'functions-init.php' );
 
 
-/* Allow Automatic Updates
- ******************************
- * http://codex.wordpress.org/Configuring_Automatic_Background_Updates
- */
-
-add_filter( 'auto_update_plugin', '__return_true' );
-add_filter( 'auto_update_theme', '__return_true' );
-add_filter( 'allow_major_auto_core_updates', '__return_true' );
-
 /* login interface
 ******************************/
 
@@ -47,6 +38,19 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 ******************************/
 
 require_once( 'functions-admin.php' );
+
+
+/* Jetpack
+ * Enable only specific modules
+ * See http://wp.me/p3Bu3Z-Gt
+************************************/
+
+//function jeherve_only_stats ( $modules ) {
+//    $return = array();
+//    $return['stats'] = $modules['stats'];
+//    return $return;
+//}
+//add_filter( 'jetpack_get_available_modules', 'jeherve_only_stats' );
 
 
 

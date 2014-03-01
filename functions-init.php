@@ -141,6 +141,12 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 
+/* Give an Excerpt to Pages - better for SEO!
+***************************************************/
+
+add_post_type_support( 'page', 'excerpt');
+
+
 /* Custom image sizes
 ******************************/
 
@@ -148,6 +154,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	//add_image_size( 'category-thumb', 300, 9999 ); //300 pixels wide (and unlimited height)
 	//add_image_size( 'landscape', 304, 184, true ); // true = cropped
 }
+
 
 /* Custom Menus
  ******************************/

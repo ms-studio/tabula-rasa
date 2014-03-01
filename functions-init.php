@@ -76,7 +76,10 @@ function custom_register_styles() {
 	 * Custom JavaScript
 	 */
 
-	wp_dequeue_script( 'devicepx' ); // some Jetpack stuff...
+	wp_dequeue_script( 'devicepx' ); 
+	// some Jetpack stuff - 
+	// "That file is used to optionally load retina/HiDPI versions of files (Gravatars etc) which are known to support it, for devices that run at a higher resolution."
+	// info: http://wordpress.org/support/topic/plugin-jetpack-by-wordpresscom-unnecessary-java-script-call
 
 	wp_enqueue_script(
 			'modernizer_js', // handle

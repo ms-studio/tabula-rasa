@@ -37,7 +37,9 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 /* admin interface
 ******************************/
 
-require_once( 'functions-admin.php' );
+if ( is_user_logged_in() ) {
+		require_once('functions-admin.php');
+}
 
 
 /* Jetpack

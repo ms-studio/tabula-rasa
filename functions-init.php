@@ -194,6 +194,7 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 
 		// add an extension to the array
 		$existing_mimes['svg'] = 'image/svg+xml';
+		$existing_mimes['epub'] = 'application/epub+zip';
 
 		// remove existing file types
 		unset( $existing_mimes['bmp'] );
@@ -206,7 +207,7 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 
 
 /*
- * File Upload Security
+ * File Upload Sanitization
  
  * Sources: 
  * http://www.geekpress.fr/wordpress/astuce/suppression-accents-media-1903/

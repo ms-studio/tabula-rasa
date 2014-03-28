@@ -130,7 +130,6 @@ function tabula_remove_dashboard_widgets() {
 	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
 
 }
-
 add_action( 'wp_dashboard_setup', 'tabula_remove_dashboard_widgets' );
 
 /**

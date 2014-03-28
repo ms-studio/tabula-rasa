@@ -141,12 +141,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 
-/* Give an Excerpt to Pages - better for SEO!
-***************************************************/
-
-add_post_type_support( 'page', 'excerpt');
-
-
 /* Custom image sizes
 ******************************/
 
@@ -156,15 +150,20 @@ if ( function_exists( 'add_image_size' ) ) {
 }
 
 
-/* Custom Menus
+/* Give an Excerpt to Pages - better for SEO!
+***************************************************/
+
+add_post_type_support( 'page', 'excerpt');
+
+
+/* Register Menus
  ******************************/
 
 if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
 			array(
-					'primary'   => __( 'Menu N°1' ),
-//					'secondary' => __( 'Menu N°2' ),
-//					'third'  => __( 'Menu N°3' ),
+					'primary'   => __( 'Menu Nr.1' ),
+//					'secondary' => __( 'Menu Nr.2' ),
 			)
 	);
 }
@@ -228,49 +227,62 @@ function sanitize_file_name_chars( $special_chars = array() ) {
 }
   
   
-/*
- * Global Date Variables
-*/
-// The current year variable
-// ******************************
-// loaded in the header.php
+/* Jetpack Stuff
+* see: http://jeremyherve.com/2013/11/19/customize-the-list-of-modules-available-in-jetpack/
 
-function mem_date_of_today() {
-
-	global $mem_today_now;
-	$mem_today_now = date_i18n( "j F Y - H:i:s" );
-
-	global $mem_today;
-	$mem_today = date_i18n( "j F Y" );
-
-	global $mem_today_short;
-	$mem_today_short = date_i18n( "Y-m-d" );
-
-	global $mem_isoweek;
-	$mem_isoweek = date_i18n( "W" );
-
-	global $mem_unix_now;
-	$mem_unix_now = strtotime( $mem_today_short );
-
-	// current year info
-
-	global $mem_current_year;
-	$mem_current_year = date_i18n( "Y" );
-
-	global $mem_current_year_string;
-	$mem_current_year_string = $mem_current_year . "-01-01";
-
-	global $mem_current_year_end;
-	$mem_current_year_end = $mem_current_year . "-12-31 23:59";
-
-	// current categories
-
-//   global $mem_visible_categories;
-//   $mem_visible_categories = 'expo,conference,evenement,workshop,symposium,voyage';
-	// used in: home.php, date.php
-	// remove: seminaire
-
+ * Disable all non-whitelisted jetpack modules.
+ *
+ * This will allow all of the currently available Jetpack modules to work
+ * normally. If there's a module you'd like to disable, simply comment it out
+ * or remove it from the whitelist and it will no longer load.
+ *
+ * @author FAT Media, LLC
+ * @link   http://wpbacon.com/tutorials/disable-jetpack-modules/
+ */
+ 
+// add_filter( 'jetpack_get_available_modules', 'prefix_kill_all_the_jetpacks' );
+ 
+ function prefix_kill_all_the_jetpacks( $modules ) {
+ 	// A list of Jetpack modules which are allowed to activate.
+ 	$whitelist = array(
+// 		'after-the-deadline',
+// 		'carousel',
+// 		'comments',
+// 		'contact-form',
+// 		'custom-css',
+ 		'enhanced-distribution',
+// 		'gplus-authorship',
+// 		'gravatar-hovercards',
+// 		'infinite-scroll',
+// 		'json-api',
+// 		'latex',
+// 		'likes',
+		'markdown',
+// 		'minileven',
+// 		'mobile-push',
+ 		'monitor',
+// 		'notes',
+ 		'omnisearch',
+// 		'photon',
+// 		'post-by-email',
+ 		'publicize',
+// 		'sharedaddy',
+// 		'shortcodes',
+// 		'shortlinks',
+// 		'sso',
+// 		'stats',
+// 		'subscriptions',
+ 		'tiled-gallery',
+// 		'vaultpress',
+// 		'videopress',
+ 		'widget-visibility',
+// 		'widgets',
+ 	);
+ 	// Deactivate all non-whitelisted modules.
+ 	$modules = array_intersect_key( $modules, array_flip( $whitelist ) );
+ 	return $modules;
 }
+ 
 
 function my_mem_settings() {
 	mem_plugin_settings( array( 'post', 'publications' ), 'full' );

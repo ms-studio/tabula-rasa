@@ -131,14 +131,29 @@ remove_action( 'wp_head', 'wp_generator' );
 remove_filter( 'atom_service_url', 'atom_service_url_filter' );
 
 
-/* Post-Thumbnails Support
+/* Theme Support
 ******************************/
-
-if ( function_exists( 'add_theme_support' ) ) {
+function tabula_rasa_setup() {
 	add_theme_support( 'post-thumbnails' );
 //     set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions  
 	// more info: http://codex.wordpress.org/Post_Thumbnails
+	
+	register_nav_menus(
+				array(
+						'primary'   => __( 'Menu Nr.1' ),
+	//					'secondary' => __( 'Menu Nr.2' ),
+				)
+		);
+	
+	add_theme_support( 'html5', array( 
+		'comment-list',
+		'comment-form',
+		'search-form',
+		'gallery', // since 3.9
+		'caption'  // since 3.9
+	) );
 }
+add_action( 'after_setup_theme', 'tabula_rasa_setup' );
 
 
 /* Custom image sizes
@@ -155,18 +170,6 @@ if ( function_exists( 'add_image_size' ) ) {
 
 add_post_type_support( 'page', 'excerpt');
 
-
-/* Register Menus
- ******************************/
-
-if ( function_exists( 'register_nav_menus' ) ) {
-	register_nav_menus(
-			array(
-					'primary'   => __( 'Menu Nr.1' ),
-//					'secondary' => __( 'Menu Nr.2' ),
-			)
-	);
-}
 
 /* Widget Area
 ******************************/

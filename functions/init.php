@@ -60,13 +60,26 @@ function custom_register_styles() {
 	 * Custom CSS
 	 */
 
-	// the MAIN stylesheet
-	wp_enqueue_style(
-			'main_css_style',
-			get_stylesheet_directory_uri() . '/css/00-main.css', // main.css
-			false, // dependencies
-			null // version
-	);
+	if ( WP_DEBUG == true ) {
+	
+			// DEV: the MAIN stylesheet - uncompressed
+			wp_enqueue_style( 
+					'main-style', 
+					get_stylesheet_directory_uri() . '/css/dev/00-main.css', // main.css
+					false, // dependencies
+					null // version
+			); 
+	
+	} else {
+	
+			// PROD: the MAIN stylesheet - combined and minified
+			wp_enqueue_style( 
+					'main-style', 
+					get_stylesheet_directory_uri() . '/css/build/styles.20141211230812.css', // main.css
+					false, // dependencies
+					null // version
+			); 
+	}
 
 	// remove some plugin CSS:
 	// wp_dequeue_style( 'mailchimpSF_main_css' );

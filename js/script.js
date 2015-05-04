@@ -34,7 +34,10 @@ $("a[href^=http]").each(
  * EmailSpamProtection (jQuery Plugin)
  ****************************************************
  * Author: Mike Unckel
- * Description and Demo: http://unckel.de/labs/jquery-plugin-email-spam-protection
+ * Source: http://unckel.de/labs/jquery-plugin-email-spam-protection
+ *
+ * How to use: Write each email in HTML in this way: 
+ * <span class="email">info [at] domain.com</span>
  */
 $.fn.emailSpamProtection = function(className) {
 	return $(this).find("." + className).each(function() {

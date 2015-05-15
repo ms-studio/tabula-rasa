@@ -32,6 +32,9 @@ add_action( 'admin_bar_menu', 'goodbye_howdy' );
 /**
  * force a color scheme - by Ipstenu (Mika Epstein)
  * http://halfelf.org/2013/mp6uccess-tips-and-tricks/
+ *
+ * Note: this leaves no choice, the color scheme is mandatory.
+ *
  ******************************/
  
 //add_filter('get_user_option_admin_color', 'change_admin_color');
@@ -46,6 +49,10 @@ add_action( 'admin_bar_menu', 'goodbye_howdy' );
 	*
 	* forked from Till Krss
 	* https://gist.github.com/tillkruess/6401453
+	*
+	* Note: this replaces the default ('classic' or 'fresh') color scheme, 
+	* so this scheme isn't available anymore.
+	*
 	******************************/
  
 //add_filter( 'get_user_option_admin_color', function( $color_scheme ) {
@@ -64,6 +71,10 @@ add_action( 'admin_bar_menu', 'goodbye_howdy' );
 	* define default color scheme for new users:
 	*
 	* http://llocally.com/?p=5251
+	*
+	* Note: this simply sets a default scheme at user creation.
+	* The user is allowed to change afterwards.
+	*
 	******************************/
 
 add_action( 'user_register', function($userid) {
@@ -138,8 +149,57 @@ add_action( 'wp_dashboard_setup', 'tabula_remove_dashboard_widgets' );
  * Show recent posts :
  * https://gist.github.com/ms-studio/6069116
  */
+ 
+// source: https://snipt.net/dnnsldr/add-a-custom-meta-box-to-wordpress-dashboard/
+//adds a custom meta box in the dashboard of WordPress
+//this one is for a simple "Contact Your Web Designer" but can be anything
 
-function wps_recent_posts_dw() {
+//add to functions.php file in WP
+//add an metabox for support into the dashboard and remove default meta boxes
+    
+function tr_dashboard_help() {
+    ?>
+    <ul>
+    	<li><a href="<?php echo admin_url(); ?>post-new.php" class="button-primary">Ajouter une News</a></li>
+    	<li><a href="<?php echo admin_url(); ?>edit.php" class="button-secondary">Gérer les News</a></li>
+    	
+    	<li><a href="<?php echo admin_url(); ?>edit.php?post_type=membres" class="button-primary">Gérer les pages Membres</a></li>
+    	<li><a href="<?php echo admin_url(); ?>edit-tags.php?taxonomy=locaux&post_type=membres" class="button-primary">Gérer les Locaux</a></li>
+    	<li><a href="<?php echo admin_url(); ?>admin.php?page=options-velodrome" class="button-primary">Les images par défaut</a></li>
+    	
+    	<hr class="custom-dash-divider" />
+    	<li><a href="https://docs.example.com" class="site-documentation" target="_blank">Documentation Site</a></li>
+    	<li><a href="mailto:site@example.org?subject=Site%20Vélodrome" class="site-documentation site-contact" target="_blank">Contact Webmaster</a></li>
+    	
+    </ul>
+    <style>
+    	.custom-dash-divider {
+    		margin-top: 1em;
+    	}
+    	#dashboard-widgets .site-documentation:before {
+    			font: 400 20px/1 dashicons;
+    			content: "\f348";
+    			color: #aaa;
+    			speak: none;
+    			display: block;
+    			float: left;
+    			margin: 0 5px 0 0;
+    			padding: 0;
+    			text-indent: 0;
+    			text-align: center;
+    			position: relative;
+    			-webkit-font-smoothing: antialiased;
+    			text-decoration: none!important;
+    	}
+    	#dashboard-widgets .site-contact:before {
+    		content: "\f465";
+    	}
+    </style>
+    <?php
+}
+ 
+
+function tr_dashboard_recent_posts() {
 	?>
 	<ul style="list-style-type: disc;padding-left: 1.5em;">
 		<?php
@@ -155,11 +215,13 @@ function wps_recent_posts_dw() {
 <?php
 }
 
-function add_wps_recent_posts_dw() {
-	wp_add_dashboard_widget( 'wps_recent_posts_dw', __( 'Recent Posts' ), 'wps_recent_posts_dw' );
+function tr_custom_dashboard_widgets() {
+	global $wp_meta_boxes; // necessary ?
+	wp_add_dashboard_widget( 'tr_dashboard_recent_posts', __( 'Recent Posts' ), 'tr_dashboard_recent_posts' );
+	wp_add_dashboard_widget('tr_dashboard_help', __( 'Actions fréquentes' ), 'tr_dashboard_help');
 }
 
-add_action( 'wp_dashboard_setup', 'add_wps_recent_posts_dw' );
+add_action( 'wp_dashboard_setup', 'tr_custom_dashboard_widgets' );
 
 /**
  * end of functions-admin.php

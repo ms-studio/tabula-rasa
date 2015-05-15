@@ -262,7 +262,7 @@ function sanitize_file_name_chars( $special_chars = array() ) {
  	// A list of Jetpack modules which are allowed to activate.
  	$whitelist = array(
 // 		'after-the-deadline',
-// 		'carousel',
+ 		'carousel',
 // 		'comments',
 // 		'contact-form',
 // 		'custom-css',
